@@ -1,6 +1,8 @@
-const left = document.querySelector("#left");
-const right = document.querySelector("#right");
+const leftBtn = document.querySelector("#left");
+const rightBtn = document.querySelector("#right");
 const itemsList = document.querySelector("#items");
+const computedStyles = getComputedStyle(items);
+
 
 const loop = (direction, e) => {
   e.preventDefault();
@@ -12,10 +14,28 @@ const loop = (direction, e) => {
   }
 };
 
-right.addEventListener("click", (e) => {
-  loop("right", e);
+rightBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  let currentRight = parseInt(computedStyles.right);
+
+  if (currentRight < 500) {
+    items.style.right = `${currentRight + 100}px`;
+  }
+
+
+
 });
 
-left.addEventListener("click", (e) => {
-  loop("left", e);
+leftBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  let currentRight = parseInt(computedStyles.right);
+
+  if (currentRight > 0) {
+    items.style.right = `${currentRight - 100}px`;
+  }
+
+
+
 });
