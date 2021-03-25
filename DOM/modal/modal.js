@@ -29,6 +29,7 @@ function createModal (content) {
 
     closeElement.addEventListener("click", e => {
         e.preventDefault();
+        
         body.removeChild(overlayElement);
     })
 
